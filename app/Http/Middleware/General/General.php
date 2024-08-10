@@ -264,7 +264,7 @@ class General {
         }
 
         //create list of languages
-        $dir = BASE_DIR . '/application/resources/lang';
+        $dir = BASE_PATH . '/resources/lang';
         $languages = array_diff(scandir($dir), array('..', '.'));
         request()->merge([
             'system_languages' => $languages,

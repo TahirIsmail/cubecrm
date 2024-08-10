@@ -23,29 +23,30 @@ $paths = [
     '/storage',
     '/storage/avatars',
     '/storage/logos',
-    '/storage/logos/clients',
+    '/storage/logos/client',
     '/storage/logos/app',
     '/storage/files',
     '/storage/temp',
-    '/application/storage/app',
-    '/application/storage/app/public',
-    '/application/storage/cache',
-    '/application/storage/cache/data',
-    '/application/storage/debugbar',
-    '/application/storage/framework',
-    '/application/storage/framework/cache',
-    '/application/storage/framework/cache/data',
-    '/application/storage/framework/sessions',
-    '/application/storage/framework/testing',
-    '/application/storage/framework/views',
-    '/application/storage/logs',
-    '/application/bootstrap/cache',
-    '/application/storage/app/purifier',
-    '/application/storage/app/purifier/HTML',
+    '/storage/app',
+    '/storage/app/public',
+    '/storage/cache',
+    '/storage/cache/data',
+    '/storage/debugbar',
+    '/storage/framework',
+    '/storage/framework/cache',
+    '/storage/framework/cache/data',
+    '/storage/framework/sessions',
+    '/storage/framework/testing',
+    '/storage/framework/views',
+    '/storage/logs',
+    '/bootstrap/cache',
+    '/storage/app/purifier',
+    '/storage/app/purifier/HTML',
 ];
 
 //Subdomain - Subfolder Fix
-if (!is_dir(BASE_PATH . '/application')) {
+if (!is_dir(BASE_PATH)) {
+    
     die('Error! - You cannot access the CRM from this url');
 }
 

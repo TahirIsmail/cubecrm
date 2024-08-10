@@ -66,8 +66,8 @@ return [
         //[nextloop] Laravel Application Storage Folder
         'app-storage' => [
             'driver' => 'local',
-            'root' => BASE_DIR.'/application/storage',
-            'url' => '/application/storage',
+            'root' => BASE_DIR.'/storage',
+            'url' => '/storage',
             'visibility' => 'public',
         ],
         's3' => [

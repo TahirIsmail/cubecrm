@@ -85,7 +85,7 @@ function middlewareBootSettings() {
     ];
 
     //cronjob path
-    $settings['cronjob_path'] = '/usr/local/bin/php ' . BASE_DIR . '/application/artisan schedule:run >> /dev/null 2>&1';
+    $settings['cronjob_path'] = '/usr/local/bin/php ' . BASE_PATH . '/application/artisan schedule:run >> /dev/null 2>&1';
 
     //all team members
     $settings['team_members'] = \App\Models\User::Where('type', 'team')->Where('status', 'active')->get();
@@ -293,7 +293,7 @@ function middlewareBootTheme() {
     }
 
     //check if css file exists
-    if (!is_file(BASE_DIR . '/public/themes/' . $settings->settings_theme_name . '/css/style.css')) {
+    if (!is_file(BASE_PATH . '/public/themes/' . $settings->settings_theme_name . '/css/style.css')) {
         Log::critical("The selected theme does not seem to have a style.css files", ['process' => '[validating theme]', config('app.debug_ref'), 'function' => __function__, 'file' => basename(__FILE__), 'line' => __line__, 'path' => __file__, 'Theme Directory: ' => '/public/themes/' . $settings->settings_theme_name]);
         abort(409, __('lang.selected_theme_is_invalid'));
     }
@@ -301,7 +301,7 @@ function middlewareBootTheme() {
     //validate if the folders in the /public/themes/ directory have a style.css file
     $list = [];
     foreach ($directories as $directory) {
-        if (is_file(BASE_DIR . "/public/themes/$directory/css/style.css")) {
+        if (is_file(BASE_PATH . "/public/themes/$directory/css/style.css")) {
             $list[] = $directory;
         }
     }
@@ -323,7 +323,7 @@ function middlewareBootTheme() {
     view()->composer('*', function ($view) {
         if (auth()->check()) {
             //validate current theme
-            if (!is_file(BASE_DIR . '/public/themes/' . auth()->user()->pref_theme . '/css/style.css')) {
+            if (!is_file(BASE_PATH . '/public/themes/' . auth()->user()->pref_theme . '/css/style.css')) {
                 //set use to default system theme
                 auth()->user()->pref_theme = $settings->settings_theme_name;
                 auth()->user()->save();

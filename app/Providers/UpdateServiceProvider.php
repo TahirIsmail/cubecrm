@@ -36,6 +36,9 @@ class UpdateServiceProvider extends ServiceProvider {
         }
 
         //get a list of all the sql files in the updates folder
+        
+
+        
         $path = BASE_DIR . "/updates";
         $files = File::files($path);
         $updated = false;
